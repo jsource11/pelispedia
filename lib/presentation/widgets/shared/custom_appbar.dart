@@ -20,8 +20,8 @@ class CustomAppbar extends StatelessWidget {
                 Icon(Icons.movie_outlined, color: colors.primary),
                 const SizedBox(width: 5),
                 Text('Pelispedia', style: titleStyle),
-                Spacer(),
-                IconButton(onPressed: () {}, icon: Icon(Icons.search))
+                const Spacer(),
+                IconButton(onPressed: () {}, icon: const Icon(Icons.search))
               ],
             ),
           ),

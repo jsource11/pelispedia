@@ -5,7 +5,6 @@ import 'package:pelispedia/presentation/providers/movies/movies_repository_provi
 final nowPlayingMoviesProvider =
     StateNotifierProvider<MovieNotifier, List<Movie>>((ref) {
   final fetchMoreMovies = ref.watch(movieRepositoryPorvider).getNowPlaying;
-  print('demo');
   return MovieNotifier(fetchMoreMovies: fetchMoreMovies);
 });
 

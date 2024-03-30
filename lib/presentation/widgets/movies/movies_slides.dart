@@ -3,8 +3,8 @@ import 'package:card_swiper/card_swiper.dart';
 import 'package:flutter/material.dart';
 import 'package:pelispedia/domain/entities/movie.dart';
 
-class moviesSlides extends StatelessWidget {
-  const moviesSlides({super.key, required this.movies});
+class MoviesSlides extends StatelessWidget {
+  const MoviesSlides({super.key, required this.movies});
   final List<Movie> movies;
 
   @override
