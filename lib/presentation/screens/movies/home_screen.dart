@@ -38,16 +38,40 @@ class _HomeViewState extends ConsumerState<_HomeView> {
     // Muestra las paginas
     final nowPlayingMovies = ref.watch(nowPlayingMoviesProvider);
     final slidesMovies = ref.watch(moviesSlidesProvider);
-    return Column(
-      children: [
-        const CustomAppbar(),
-        MoviesSlides(movies: slidesMovies),
-        MovieHorizontalListView(
-          movies: nowPlayingMovies,
-          title: 'En Cines',
-          subTitle: 'Lunes 20',
-        )
-      ],
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          const CustomAppbar(),
+          MoviesSlides(movies: slidesMovies),
+          MovieHorizontalListView(
+            movies: nowPlayingMovies,
+            title: 'Extrenos',
+            subTitle: 'Martes 10',
+            loadNextPage: () {
+              ref.read(nowPlayingMoviesProvider.notifier).loadNextPage();
+            },
+          ),
+          MovieHorizontalListView(
+            movies: nowPlayingMovies,
+            title: 'Próximamente',
+            subTitle: 'Sábado 22',
+            loadNextPage: () {
+              ref.read(nowPlayingMoviesProvider.notifier).loadNextPage();
+            },
+          ),
+          MovieHorizontalListView(
+            movies: nowPlayingMovies,
+            title: 'Populares',
+            subTitle: 'recientes',
+            loadNextPage: () {
+              ref.read(nowPlayingMoviesProvider.notifier).loadNextPage();
+            },
+          ),
+          const SizedBox(
+            height: 10,
+          )
+        ],
+      ),
     );
   }
 }
