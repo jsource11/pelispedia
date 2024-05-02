@@ -5,7 +5,17 @@ import 'package:pelispedia/presentation/providers/movies/movies_repository_provi
 final nowPlayingMoviesProvider =
     StateNotifierProvider<MovieNotifier, List<Movie>>((ref) {
   final fetchMoreMovies = ref.watch(movieRepositoryPorvider).getNowPlaying;
-  return MovieNotifier(fetchMoreMovies: fetchMoreMovies);
+  return MovieNotifier(
+    fetchMoreMovies: fetchMoreMovies,
+  );
+});
+
+final popularMoviesProvider =
+    StateNotifierProvider<MovieNotifier, List<Movie>>((ref) {
+  final fetchMoreMovies = ref.watch(movieRepositoryPorvider).getNowPopular;
+  return MovieNotifier(
+    fetchMoreMovies: fetchMoreMovies,
+  );
 });
 
 typedef MovieCallback = Future<List<Movie>> Function({int page});
